@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Newton | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Interpolação Polinomial - Método de Newton              .custom-body {             font-family: Arial, sans-serif;             background-color: #f2f2f2;             margin: 0;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Newton">
+<meta property="og:url" content="https://segobinho.github.io/calculo/2024/06/10/Newton/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Interpolação Polinomial - Método de Newton              .custom-body {             font-family: Arial, sans-serif;             background-color: #f2f2f2;             margin: 0;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-10T22:56:40.000Z">
+<meta property="article:modified_time" content="2024-06-23T02:30:43.642Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/calculo/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/calculo/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/calculo/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/calculo/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/calculo/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/calculo/">Home</a>
+        
+          <a class="main-nav-link" href="/calculo/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/calculo/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://segobinho.github.io/calculo"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Newton" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/calculo/2024/06/10/Newton/" class="article-date">
+  <time class="dt-published" datetime="2024-06-10T22:56:40.000Z" itemprop="datePublished">2024-06-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Newton
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpolação Polinomial - Método de Newton</title>
+    <style>
+        .custom-body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        .custom-title {
+            text-align: center;
+            color: #333;
+        }
+        .custom-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .custom-label, .custom-input {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+        }
+        .custom-input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .custom-button, .custom-submit {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+        }
+        .custom-button:hover, .custom-submit:hover {
+            background-color: #45a049;
+        }
+        .custom-button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .custom-button-container .custom-button {
+            width: 48%;
+        }
+        .custom-result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="custom-body">
+    <h2 class="custom-title">Cálculo Numérico</h2>
+    <form id="custom-calculo-form" class="custom-form">
+        <div id="custom-pontos-container">
+            <div class="custom-ponto">
+                <label for="custom-x0" class="custom-label">x0: </label>
+                <input type="text" name="custom-x[]" id="custom-x0" class="custom-input"> 
+                <label for="custom-y0" class="custom-label">y0: </label>
+                <input type="text" name="custom-y[]" id="custom-y0" class="custom-input">
+            </div>
+            <div class="custom-ponto">
+                <label for="custom-x1" class="custom-label">x1: </label>
+                <input type="text" name="custom-x[]" id="custom-x1" class="custom-input"> 
+                <label for="custom-y1" class="custom-label">y1: </label>
+                <input type="text" name="custom-y[]" id="custom-y1" class="custom-input">
+            </div>
+        </div>
+        <div class="custom-button-container">
+            <input type="button" value="Adicionar Ponto" onclick="customAdicionarPonto()" class="custom-button">
+            <input type="button" value="Remover Ponto" onclick="customRemoverPonto()" class="custom-button">
+        </div>
+        <label for="custom-interpolar" class="custom-label">Ponto para interpolar: </label>
+        <input type="text" name="custom-interpolar" id="custom-interpolar" class="custom-input">
+        
+        <input type="button" value="Calcular" onclick="customCalcularInterpolacao()" class="custom-submit">
+    </form>
+
+    <div id="custom-resultado" class="custom-result"></div>
+
+    <script>
+        let customPontoIndex = 2;
+
+        function customAdicionarPonto() {
+            let container = document.getElementById('custom-pontos-container');
+            let div = document.createElement('div');
+            div.classList.add('custom-ponto');
+            div.innerHTML = `
+                <label for="custom-x${customPontoIndex}" class="custom-label">x${customPontoIndex}: </label>
+                <input type="text" name="custom-x[]" id="custom-x${customPontoIndex}" class="custom-input"> 
+                <label for="custom-y${customPontoIndex}" class="custom-label">y${customPontoIndex}: </label>
+                <input type="text" name="custom-y[]" id="custom-y${customPontoIndex}" class="custom-input">
+            `;
+            container.appendChild(div);
+            customPontoIndex++;
+        }
+
+        function customRemoverPonto() {
+            let container = document.getElementById('custom-pontos-container');
+            if (container.children.length > 2) {
+                container.removeChild(container.lastElementChild);
+                customPontoIndex--;
+            } else {
+                alert('É necessário inserir pelo menos dois pontos para interpolação.');
+            }
+        }
+
+        function customCalcularInterpolacao() {
+            // Função para calcular a interpolação usando o método de Newton
+
+            // Obtendo os valores dos pontos x e y
+            let pontosX = [];
+            let pontosY = [];
+
+            for (let i = 0; i < customPontoIndex; i++) {
+                let inputX = document.getElementById('custom-x' + i);
+                let inputY = document.getElementById('custom-y' + i);
+
+                if (inputX && inputY && inputX.value && inputY.value) {
+                    pontosX.push(parseFloat(inputX.value));
+                    pontosY.push(parseFloat(inputY.value));
+                }
+            }
+
+            // Ponto para interpolar
+            let pontoInterpolar = parseFloat(document.getElementById('custom-interpolar').value);
+
+            // Verificando se temos pontos suficientes para calcular
+            if (pontosX.length < 2 || pontosY.length < 2 || pontosX.length !== pontosY.length) {
+                alert('É necessário inserir pelo menos dois pontos para interpolação.');
+                return;
+            }
+
+            // Calculando a interpolação linear usando o método da soma dividida de Newton
+            let resultado = customInterpolarNewton(pontosX, pontosY, pontoInterpolar);
+
+            // Exibindo o resultado
+            let resultadoDiv = document.getElementById('custom-resultado');
+            resultadoDiv.innerHTML = `O valor interpolado em x = ${pontoInterpolar} é y = ${resultado.toFixed(4)}.`;
+        }
+
+        function customInterpolarNewton(x, y, pontoInterpolar) {
+            // Implementação do método da soma dividida de Newton para interpolação linear
+
+            let n = x.length;
+            let somaDividida = 0;
+
+            for (let i = 0; i < n; i++) {
+                let termoDividido = y[i];
+                for (let j = 0; j < i; j++) {
+                    termoDividido /= (x[i] - x[j]);
+                }
+                for (let j = 0; j < i; j++) {
+                    termoDividido *= (pontoInterpolar - x[j]);
+                }
+                somaDividida += termoDividido;
+            }
+
+            return somaDividida;
+        }
+    </script>
+</body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://segobinho.github.io/calculo/2024/06/10/Newton/" data-id="clxqw2tl6000bjoirgsg52qbm" data-title="Newton" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/calculo/2024/06/11/Lagrange/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Lagrange
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/calculo/archives/2024/06/">June 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/calculo/2024/06/18/lista/">Lista</a>
+          </li>
+        
+          <li>
+            <a href="/calculo/2024/06/17/listaex/">Lista Exercícios</a>
+          </li>
+        
+          <li>
+            <a href="/calculo/2024/06/17/folha/">Folha</a>
+          </li>
+        
+          <li>
+            <a href="/calculo/2024/06/11/Lagrange/">Lagrange</a>
+          </li>
+        
+          <li>
+            <a href="/calculo/2024/06/10/Newton/">Newton</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/calculo/" class="mobile-nav-link">Home</a>
+  
+    <a href="/calculo/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/calculo/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/calculo/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/calculo/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
